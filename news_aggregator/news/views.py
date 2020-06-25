@@ -3,7 +3,10 @@ import requests
 from bs4 import BeautifulSoup
 # Getting news from Times of India
 
-tie_r = requests.get("https://indianexpress.com/article/explained/india-coronavirus-cases-explained-delhi-mumbai-covid-cases-deaths-6475436/")
+headers = {"User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)"}
+
+tie_r = requests.get("https://indianexpress.com/article/explained/india-coronavirus-cases-explained-delhi-mumbai-covid-cases-deaths-6475436/" , headers=headers)
+
 tie_soup = BeautifulSoup(tie_r.content, 'html5lib')
 tie_headings = tie_soup.find_all('p')
 
